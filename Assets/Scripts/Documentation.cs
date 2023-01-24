@@ -34,4 +34,40 @@ public class Documentation : MonoBehaviour
             isActive = false;
         }
     }
+
+    /*    private void OnCollisionEnter(Collision collision)
+        {
+            Debug.Log("Entrée dans Venus");
+            if (collision.gameObject.CompareTag("Visiteur"))
+            {
+                Debug.Log("Entrée dans Venus");
+                documentationPainting.gameObject.SetActive(true);
+                isActive = true;
+            }
+        }*/
+
+    /*private void OnCollisionExit(Collision collision)
+    {
+        Debug.Log("Sortie de Venus");
+        if (collision.gameObject.CompareTag("Venus"))
+        {
+            documentationPainting.gameObject.SetActive(false);
+            isActive = false;
+        }
+    }*/
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Venus"))
+        {
+            // Debug.Log("Entrée dans Venus");
+            documentationPainting.gameObject.SetActive(true);
+            isActive = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Sortie de Venus");
+    }
 }
