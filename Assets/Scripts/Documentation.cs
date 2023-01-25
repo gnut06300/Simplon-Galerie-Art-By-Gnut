@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
+using TMPro;
 
 public class Documentation : MonoBehaviour
 {
     public TextMeshProUGUI documentationPainting;
+    private Image crossImage;
     private bool isActive;
+    private bool crossIsActive;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        crossImage = GameObject.Find("ImageCross").GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -33,6 +35,18 @@ public class Documentation : MonoBehaviour
             documentationPainting.gameObject.SetActive(false);
             isActive = false;
         }
+    }
+
+    private void OnMouseEnter()
+    {
+        // crossImage.enabled = true;
+        crossImage.color = new Color(0.9433962f, 0.5311463f, 0.04805973f);
+    }
+
+    private void OnMouseExit()
+    {
+        // crossImage.enabled = false;
+        crossImage.color = new Color(1f, 1f, 1f);
     }
 
     /*    private void OnCollisionEnter(Collision collision)
@@ -60,7 +74,7 @@ public class Documentation : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Venus"))
         {
-            // Debug.Log("Entrée dans Venus");
+            Debug.Log("Entrée dans Venus");
             documentationPainting.gameObject.SetActive(true);
             isActive = true;
         }
